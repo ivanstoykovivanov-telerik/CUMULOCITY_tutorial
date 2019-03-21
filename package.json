@@ -1,0 +1,49 @@
+{
+  "name": "my-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "c8ycli server -u http://ivan_ivanov.eu-latest.cumulocity.com",  
+    "build": "c8ycli build",
+    "deploy": "c8ycli deploy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@angular/animations": "6.0.3", 
+    "@angular/common": "6.0.3",
+    "@angular/compiler": "6.0.3",
+    "@angular/core": "6.0.3",
+    "@angular/forms": "6.0.3",
+    "@angular/http": "6.0.3",
+    "@angular/platform-browser": "6.0.3",
+    "@angular/platform-browser-dynamic": "6.0.3",
+    "@angular/router": "6.0.3",
+    "@angular/upgrade": "6.0.3",
+    "@c8y/ngx-components": "9.20.9",
+    "core-js": "2.5.7",
+    "rxjs": "6.2.1",
+    "rxjs-compat": "6.2.1",
+    "zone.js": "0.8.26",
+    "@c8y/style": "9.20.9"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~0.8.4",
+    "@angular/compiler-cli": "6.0.3",
+    "@angular/language-service": "6.0.3",
+    "typescript": "2.7.2",
+    "@c8y/cli": "9.20.9"
+  },
+  "c8y": {
+    "application": {
+      "name": "my-app",
+      "contextPath": "my-app",
+      "key": "my-app-application-key",
+      "brandingEntry": "./branding/branding.less",
+      "globalTitle": "Pied Piper IoT",
+      "tabsHorizontal": true
+    }
+  }
+}

@@ -1,0 +1,32 @@
+<c8y-title translate>Superhero</c8y-title>
+<c8y-action-bar-item [placement]="'right'">
+    <button class="btn btn-link" (click)="removeHero()" [disabled]="superheros.length === 0">
+        <i class="fa fa-times"></i> {{ 'Remove hero' | translate}}
+    </button>
+</c8y-action-bar-item>
+<!-- <h3>{{test}}</h3> -->
+<div *ngIf="superheros.length === 0">
+    {{informationText | translate}}
+</div>
+
+<table class="table" *ngIf="superheros.length > 0">
+    <tr>
+        <th translate>Name</th>
+        <th translate>Gender</th>
+        <th translate>Power</th>
+    </tr>
+    <tr *ngFor="let hero of superheros">
+        <td>{{hero.name}}</td>
+        <td>{{hero.gender | translate}}</td>
+        <td>{{hero.power | translate}}</td>
+    </tr>
+</table>
+<!-- 
+<h3>Add your own Hero : </h3>
+<form action="">
+    <label for="">Name</label>
+    <input type="text">
+    <label for="">Superpower</label>
+    <input type="text">
+    <button class="btn bnt-danger">Add</button>
+</form>  -->

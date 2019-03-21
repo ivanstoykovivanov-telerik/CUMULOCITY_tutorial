@@ -1,0 +1,31 @@
+<c8y-title translate>All devices</c8y-title>
+
+<div *ngIf="devices === undefined || devices.length === 0">
+    {{informationText | translate}}
+</div>
+
+<div style="margin-bottom: 20px;">
+    {{'Create new device' | translate}}:
+    <input #deviceName/>
+    <button type="button" (click)="addDevice(deviceName.value)">
+        <i [c8yIcon]="'plus-circle'"></i>
+    </button>
+</div>
+
+<table class="table" *ngIf="devices !== undefined && devices.length > 0">
+    <tr>
+        <th translate>Id</th>
+        <th translate>Name</th>
+        <th translate>Delete</th>
+    </tr>
+    <tr *ngFor="let device of devices">
+        <td>{{device.id}}</td>
+        <td *ngIf="device.name !== undefined">{{device.name}}</td>
+        <td *ngIf="device.name === undefined"> - </td>
+        <td>
+            <button (click)="deleteDevice(device.id)">
+                <i [c8yIcon]="'times'"></i>
+            </button>
+        </td>
+    </tr>
+</table>
