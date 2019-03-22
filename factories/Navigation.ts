@@ -35,10 +35,16 @@ export class ExampleNavigationFactory implements NavigatorNodeFactory {
       priority: 98
     }));
     nav.push(new NavigatorNode({
+      label: _('Users'),
+      icon: 'users',
+      path: '/users',
+      priority: 97
+    }));
+    nav.push(new NavigatorNode({
       label: _('Devices'),
       icon: 'c8y-device',
       path: '/devices',
-      priority: 97
+      priority: 96
     }));
     return nav;
   }

@@ -10,9 +10,11 @@ import { HelloComponent } from './src/hello/hello.component';
 import { OutstandingComponent } from './src/outstanding/outstanding.component';
 import { SuperheroComponent } from './src/superhero/superhero.component';
 import { SuperheroService } from './src/superhero/superhero.service';
+import { UserService } from './src/users/user.service';
 import { WorldComponent } from './src/world/world.component';
 import { DevicesComponent } from './src/devices/devices.component';
-import {
+import { UsersComponent } from './src/users/users.component';
+import {  
     CommonModule,
     CoreModule,
     HOOK_ACTION,
@@ -37,6 +39,9 @@ const appRoutes: Routes = [
     },
     {   path: 'superhero',
         component: SuperheroComponent
+    },
+    {   path: 'users',
+        component: UsersComponent
     },
     {
         path: 'world/awesome',
@@ -64,6 +69,7 @@ const appRoutes: Routes = [
     AwesomeComponent,
     OutstandingComponent,
     SuperheroComponent,
+    UsersComponent, 
     DevicesComponent
   ],
   imports: [
@@ -83,7 +89,8 @@ const appRoutes: Routes = [
     { provide: HOOK_TABS, useClass: ExampleTabFactory, multi: true},
     { provide: HOOK_ACTION, useClass: ExampleActionFactory, multi: true},
     { provide: HOOK_BREADCRUMB, useClass: ExampleBreadcrumbFactory, multi: true},
-    SuperheroService
+    SuperheroService, 
+    UserService
   ],
   /**
    * Bootstrap your application with the BootstrapComponent which will use the `<c8y-bootstrap>`

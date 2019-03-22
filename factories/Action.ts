@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ActionFactory, Action, _ } from '@c8y/ngx-components';
-import { Superhero } from '../src/superhero/superhero.model';
 import { Router } from '@angular/router';
 import { SuperheroService } from '../src/superhero/superhero.service';
+import { UserService } from '../src/users/user.service';
 
 /**
  * Actions are available through a button (+) within the header.
@@ -11,7 +11,11 @@ import { SuperheroService } from '../src/superhero/superhero.service';
 @Injectable()
 export class ExampleActionFactory implements ActionFactory {
     // Inject the angular Router and custom SuperheroService
-    constructor(private router: Router, private superheroService: SuperheroService) { }
+    constructor(
+        private router: Router, 
+        private superheroService: SuperheroService, 
+        private userService: UserService
+        ) { }
 
     // Implement the get()-method, otherwise the ExampleActionFactory
     // implements the ActionFactory interface incorrectly (!)
@@ -21,6 +25,7 @@ export class ExampleActionFactory implements ActionFactory {
         const actions: Action[] = [];
         // Mandantory for an Action is just a label (string)
         let addSuperhero: Action;
+        let addUser : Action ; 
 
         addSuperhero = {
             label: _('Add Superhero'),
@@ -31,13 +36,22 @@ export class ExampleActionFactory implements ActionFactory {
             disabled: true
         };
 
+        addUser = {
+            label: _('Add User'), 
+            action: () => this.userService.addUser(), 
+            disabled: true
+        }
+
         // Only if the URL matches: .../apps/tutorial-application/#/superhero
         // the actions-button is enabled and the user can click it.
         if (this.router.url.match(/superhero/g)) {
             addSuperhero.disabled = false;
         }
-
+        if (this.router.url.match(/users/g)){
+            addUser.disabled = false;
+        }
         actions.push(addSuperhero);
+        actions.push(addUser);
         return actions;
     }
 }
